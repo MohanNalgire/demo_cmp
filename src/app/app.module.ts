@@ -25,6 +25,7 @@ import { SliderComponent } from './slider/slider.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AgmCoreModule } from '@agm/core';
     GooglemapComponent,
     CompanyhistoryComponent,
     CompanygoalsComponent,
-    CompanypartnersComponent
+    CompanypartnersComponent,
+    SignupComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -84,6 +86,10 @@ import { AgmCoreModule } from '@agm/core';
       {
         path:'login',
         component:LoginComponent
+      },
+      {
+        path:'signup',
+        component:SignupComponent
       },
       {
         path:'**',
