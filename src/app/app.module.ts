@@ -26,6 +26,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { SignupComponent } from './signup/signup.component';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { SignupComponent } from './signup/signup.component';
     SignupComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     BrowserModule,
     AgmCoreModule.forRoot({

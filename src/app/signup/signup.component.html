@@ -1,22 +1,67 @@
 <div class="user_signup">
-  <form action="" class="form-horizontal">
+  <form action="" class="form-horizontal" [formGroup]="signupform" novalidate>
     <fieldset>
       <legend align="left" align="left">Name details</legend>
       <div class="form-group row">
         <label for="userName" class="col control-label">User Name</label>
-        <input type="text" id="userName" class="col form-control" placeholder="Enter user name" />
+        <input type="text" id="userName" class="col form-control" placeholder="Enter user name" 
+          formControlName='userName'
+        />
+      </div>
+      {{userName.errors|json}}
+      <div *ngIf="userName.invalid" class="alert alert-danger text-left font-weight-normal" >test</div>
+      <div *ngIf="userName.errors &&(userName.touched)" >
+        <div *ngIf="userName.errors.required" class='alert alert-danger align-center text-left' >User name is required.</div>
+        <div *ngIf="userName.errors.maxlength" class='alert alert-danger align-center text-left' >User name maximum 10 characters required.</div>
+        <div *ngIf="userName.errors.minlength" class='alert alert-danger align-center text-left' >User name minimum 4  characters required.</div>
       </div>
     </fieldset>
     <fieldset>
       <legend align="left">Contact details</legend>
       <div class="form-group row">
         <label for="userEmail" class="col control-label">Email</label>
-        <input type="text" id="userEmail" class="col form-control" placeholder="Enter user emailid" />
+        <input type="text" id="userEmail" class="col form-control" placeholder="Enter user emailid" 
+          formControlName='userEmail'
+        />
+        <!-- Dirty:{{userEmail.dirty}}Pristine:{{userEmail.pristine}}<br> -->
+        <!-- Touched:{{userEmail.touched}}Untouched:{{userEmail.untouched}}<br> -->
+        <!-- valid:{{userEmail.valid}}Invalid:{{userEmail.invalid}}<br> -->
       </div>
+      <div class="class" [ngClass]="{
+        'has-success':userEmail.dirty,
+        'has-danger':userEmail.pristine
+      }"></div>
       <div class="form-group row">
         <label for="userMobile" class="col control-label">Mobile</label>
-        <input type="number" class="col form-control" placeholder="Enter user mobile number" />
+        <input type="number" id="userMobile"  class="col form-control" placeholder="Enter user mobile number" 
+        formControlName='userMobile'
+        
+        required
+        />
+
+
+        
       </div>
+      
+      <div class="form-group row">
+        <label for="userCountry" class="col control-label">Country</label>
+        <select name="country" id="userCountry" class="col form-control">
+          <option label="" value="" >Select Country</option>
+          <option label="" value="" *ngFor="let country of countries" [value]="country">{{country}}</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <label for="userState" class="col control-label">State</label>
+        <select name="" id="userState" class="col form-control">
+          <option label="" value="" >Select state</option>
+          <option *ngFor="let state of states" [value]="state" >{{state}}</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <label for="userCity" class="col control-label">City</label>
+        <input type="number" id="userCity" class="col form-control" placeholder="Enter user mobile number" />
+      </div>
+      
     </fieldset>
     <fieldset>
       <legend align="left">Accout details</legend>
@@ -34,3 +79,5 @@
     <input type="button" class="btn btn-outline-secondary" value="Cancel" />
   </form>
 </div>
+
+<pre>{{signupform.value|json}}</pre>
