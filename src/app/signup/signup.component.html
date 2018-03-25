@@ -4,78 +4,160 @@
       <legend align="left" align="left">Name details</legend>
       <div class="form-group row">
         <label for="userName" class="col control-label">User Name</label>
-        <input type="text" id="userName" class="col form-control" placeholder="Enter user name" 
-          formControlName='userName'
-        />
+        <input type="text" id="userName" class="col form-control" placeholder="Enter user name" formControlName='userName' />
       </div>
-      {{userName.errors|json}}
-      <div *ngIf="userName.invalid" class="alert alert-danger text-left font-weight-normal" >test</div>
-      <div *ngIf="userName.errors &&(userName.touched)" >
-        <div *ngIf="userName.errors.required" class='alert alert-danger align-center text-left' >User name is required.</div>
-        <div *ngIf="userName.errors.maxlength" class='alert alert-danger align-center text-left' >User name maximum 10 characters required.</div>
-        <div *ngIf="userName.errors.minlength" class='alert alert-danger align-center text-left' >User name minimum 4  characters required.</div>
+      <div *ngIf="userName.errors &&(userName.touched)">
+        <div *ngIf="userName.errors.required" class='alert alert-danger alert-dismissable text-left'>
+          <a href="#" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User name is required.
+        </div>
+        <div *ngIf="userName.errors.maxlength" class='alert alert-danger alert-dismissable text-left'>
+          <a href="#" data-dismiss="alert" class="close" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User name maximum 10 characters required.</div>
+        <div *ngIf="userName.errors.minlength" class='alert alert-danger alert-dismissable text-left'>
+          <a href="#" data-dismiss="close" class="close" aria-label="close">&times;</a>
+          <strong>Danger !</strong> name minimum 4 characters required.</div>
       </div>
     </fieldset>
+
     <fieldset>
       <legend align="left">Contact details</legend>
       <div class="form-group row">
         <label for="userEmail" class="col control-label">Email</label>
-        <input type="text" id="userEmail" class="col form-control" placeholder="Enter user emailid" 
-          formControlName='userEmail'
+        <input type="email" id="userEmail" class="col form-control" placeholder="Enter user emailid" formControlName='userEmail'
         />
-        <!-- Dirty:{{userEmail.dirty}}Pristine:{{userEmail.pristine}}<br> -->
-        <!-- Touched:{{userEmail.touched}}Untouched:{{userEmail.untouched}}<br> -->
-        <!-- valid:{{userEmail.valid}}Invalid:{{userEmail.invalid}}<br> -->
       </div>
-      <div class="class" [ngClass]="{
-        'has-success':userEmail.dirty,
-        'has-danger':userEmail.pristine
-      }"></div>
+      <div *ngIf="userEmail.errors&&(userEmail.touched)">
+        <div *ngIf="userEmail.errors.required" class="alert alert-danger alert-dismissible text-left">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger!</strong> User email field is required.
+        </div>
+        <div *ngIf="userEmail.errors.minlength" class="alert alert-danger alert-dismissible text-left">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User email field minimum 20 characters required.
+        </div>
+        <div *ngIf="userEmail.errors.maxlength" class="alert alert-danger alert-dismissible text-left ">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User email field maximum 40 characters required.
+        </div>
+        <div *ngIf="userEmail.errors.pattern" class="alert alert-danger alert-dismissable text-left">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User email pattern is wrong.
+        </div>
+      </div>
+
       <div class="form-group row">
         <label for="userMobile" class="col control-label">Mobile</label>
-        <input type="number" id="userMobile"  class="col form-control" placeholder="Enter user mobile number" 
-        formControlName='userMobile'
-        
-        required
-        />
-
-
-        
+        <input type="text" id="userMobile" class="col form-control" placeholder="Enter user mobile number" formControlName='userMobile'
+          required />
       </div>
-      
+      <div *ngIf="userMobile.errors&&(userMobile.touched)">
+        <div *ngIf="userMobile.errors.required" class="alert alert-danger alert-dismissible text-left">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger!</strong> User mobile field is required.
+        </div>
+        <div *ngIf="userMobile.errors.minlength" class="alert alert-danger alert-dismissible text-left">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User mobile field minimum 10 digits required.
+        </div>
+        <div *ngIf="userMobile.errors.maxlength" class="alert alert-danger alert-dismissible text-left ">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User mobile field maximum 12 digits required.
+        </div>
+        <div *ngIf="userMobile.errors.pattern" class="alert alert-danger alert-dismissable text-left">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>Danger !</strong>User mobile pattern is wrong.
+        </div>
+      </div>
+
+
       <div class="form-group row">
         <label for="userCountry" class="col control-label">Country</label>
         <select name="country" id="userCountry" class="col form-control">
-          <option label="" value="" >Select Country</option>
+          <option label="" value="">Select Country</option>
           <option label="" value="" *ngFor="let country of countries" [value]="country">{{country}}</option>
         </select>
       </div>
       <div class="form-group row">
         <label for="userState" class="col control-label">State</label>
         <select name="" id="userState" class="col form-control">
-          <option label="" value="" >Select state</option>
-          <option *ngFor="let state of states" [value]="state" >{{state}}</option>
+          <option label="" value="">Select state</option>
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
         </select>
       </div>
       <div class="form-group row">
         <label for="userCity" class="col control-label">City</label>
-        <input type="number" id="userCity" class="col form-control" placeholder="Enter user mobile number" />
+        <input type="text" id="userCity" class="col form-control" placeholder="Enter user mobile number" formControlName="userCity" />
       </div>
-      
+      <div *ngIf="userCity.errors&&(userCity.touched)">
+          <div *ngIf="userCity.errors.required" class="alert alert-danger alert-dismissible text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!</strong> User city field is required.
+          </div>
+          <div *ngIf="userCity.errors.minlength" class="alert alert-danger alert-dismissible text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User city field minimum 10 digits required.
+          </div>
+          <div *ngIf="userCity.errors.maxlength" class="alert alert-danger alert-dismissible text-left ">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User city field maximum 12 digits required.
+          </div>
+          <div *ngIf="userCity.errors.pattern" class="alert alert-danger alert-dismissable text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User city pattern is wrong.
+          </div>
+        </div>
     </fieldset>
+
     <fieldset>
       <legend align="left">Accout details</legend>
       <div class="form-group row">
         <label for="userPassword" class="col control-label">Password</label>
-        <input type="password" class="col form-control" placeholder="Enter user password" />
+        <input type="password" class="col form-control" placeholder="Enter user password" formControlName="userPassword" />
       </div>
+      <div *ngIf="userPassword.errors&&(userPassword.touched)">
+          <div *ngIf="userPassword.errors.required" class="alert alert-danger alert-dismissible text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!</strong> User password field is required.
+          </div>
+          <div *ngIf="userPassword.errors.minlength" class="alert alert-danger alert-dismissible text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User password field minimum 10 digits required.
+          </div>
+          <div *ngIf="userPassword.errors.maxlength" class="alert alert-danger alert-dismissible text-left ">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User password field maximum 12 digits required.
+          </div>
+          <div *ngIf="userPassword.errors.pattern" class="alert alert-danger alert-dismissable text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User password pattern is wrong.
+          </div>
+        </div>
 
       <div class="form-group row">
         <label for="userConfirmPassword" class="col control-label">Confirm Passward</label>
-        <input type="password" id="userConfirmPassword" class="col form-control" placeholder="Enter user confirm password" />
+        <input type="password" id="userConfirmPassword" class="col form-control" placeholder="Enter user confirm password"  formControlName="userConfirmPassword" />
       </div>
+      <div *ngIf="userConfirmPassword.errors&&(userConfirmPassword.touched)">
+          <div *ngIf="userConfirmPassword.errors.required" class="alert alert-danger alert-dismissible text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger!</strong> User  confirm password field is required.
+          </div>
+          <div *ngIf="userConfirmPassword.errors.minlength" class="alert alert-danger alert-dismissible text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User  confirm password field minimum 10 characters required.
+          </div>
+          <div *ngIf="userConfirmPassword.errors.maxlength" class="alert alert-danger alert-dismissible text-left ">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User confirm password field maximum 20 characters required.
+          </div>
+          <div *ngIf="userConfirmPassword.errors.pattern" class="alert alert-danger alert-dismissable text-left">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Danger !</strong>User confirm password pattern is wrong.
+          </div>
+        </div>
     </fieldset>
-    <input type="submit" class="btn btn-outline-primary" value="Submit" />
+    <input type="submit" class="btn btn-outline-primary" value="Submit" [disabled]="!signupform.valid" />
     <input type="button" class="btn btn-outline-secondary" value="Cancel" />
   </form>
 </div>

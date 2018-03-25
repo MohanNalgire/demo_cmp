@@ -3,3 +3,11 @@
     text-align: right;
     margin:auto 200px;
 }
+
+.ng-valid:not(form){
+border-left:5px solid #05fc26;/*Green*/
+} 
+.ng-invalid:not(form){
+    border-left:5px solid #ec3c3c;/*Red*/
+
+}

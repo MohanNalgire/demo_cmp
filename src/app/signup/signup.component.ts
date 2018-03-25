@@ -15,6 +15,8 @@ export class SignupComponent implements OnInit {
   userCountry:FormControl;
   userState:FormControl;
   userCity:FormControl;
+  userPassword:FormControl;
+  userConfirmPassword:FormControl;
 
   countries:string[]=[
     'India',
@@ -39,13 +41,41 @@ export class SignupComponent implements OnInit {
       ]
     );
     this.userEmail=new FormControl(
-      '',
-      Validators.required
+      '',[
+      Validators.required,
+      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+      ]
     );
-    this.userMobile=new FormControl();
+    this.userMobile=new FormControl(
+      '',[
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(12)
+      ]
+    );
     this.userCountry=new FormControl();
     this.userState=new FormControl();
-    this.userCity=new FormControl();
+    this.userCity=new FormControl(
+      '',[
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(30)
+      ]
+    );
+    this.userPassword=new FormControl(
+      '',[
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(20)
+      ]
+    );
+    this.userConfirmPassword=new FormControl(
+      '',[
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(20)
+      ]
+    );
   }
   
   createForm(){
@@ -55,7 +85,9 @@ export class SignupComponent implements OnInit {
       userMobile:this.userMobile,
       userCountry:this.userCountry,
       userState:this.userState,
-      userCity:this.userCity
+      userCity:this.userCity,
+      userPassword:this.userPassword,
+      userConfirmPassword:this.userConfirmPassword
     });
   }
 
