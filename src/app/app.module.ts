@@ -15,7 +15,7 @@ import { LoginComponent } from './login/login.component';
 
 import { RouterModule } from '@angular/router';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,6 +27,15 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 import { AgmCoreModule } from '@agm/core';
 import { SignupComponent } from './signup/signup.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersComponent } from './users/users.component';
+import { ProductsComponent } from './products/products.component';
+
+import { HttpModule }from '@angular/http';
+import { HttpClient,HttpClientModule  } from '@angular/common/http';
+
+//Services 
+import { UserdataService } from './services/userdata.service';
+import { ProductdataService } from './services/productdata.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +55,9 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
     CompanyhistoryComponent,
     CompanygoalsComponent,
     CompanypartnersComponent,
-    SignupComponent
+    SignupComponent,
+    UsersComponent,
+    ProductsComponent
   ],
   imports: [
     FormsModule,
@@ -95,13 +106,24 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
         component:SignupComponent
       },
       {
+        path:'users',
+        component:UsersComponent
+      },
+      {
+        path:'products',
+        component:ProductsComponent
+      },
+      {
         path:'**',
         component:NotfoundComponent
       }
 
     ])
   ],
-  providers: [],
+  providers: [
+    UserdataService,
+    ProductdataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

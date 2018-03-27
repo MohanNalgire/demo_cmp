@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserdataService } from '../services/userdata.service';
+
+
+
 declare var jquery:any;
 declare var $ :any;
 
@@ -9,8 +13,11 @@ declare var $ :any;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {}
+  constructor(private usersdata:UserdataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    console.log(this.usersdata.getAllUsers());
+  }
 
 }
