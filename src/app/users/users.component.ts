@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { HttpClient,HttpClientModule  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -15,17 +14,22 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-
+  private users;
   url = 'http://localhost:3000/users';
 
-  constructor(private usersdata:UserdataService) { 
+  constructor(private http:HttpClient) { 
+
     
   }
 
   
 
   ngOnInit() {
-    console.log('userData',this.usersdata.users);
+    this.http.get('http://localhost:3000/users').subscribe(data => {
+      console.log(data);
+      this.users=data;
+    });
   }
+    
 
 }

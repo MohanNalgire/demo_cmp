@@ -19,7 +19,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { PaartersComponent } from './paarters/paarters.component';
 
 import { SliderComponent } from './slider/slider.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
@@ -36,6 +35,7 @@ import { HttpClient,HttpClientModule  } from '@angular/common/http';
 //Services 
 import { UserdataService } from './services/userdata.service';
 import { ProductdataService } from './services/productdata.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +48,7 @@ import { ProductdataService } from './services/productdata.service';
     NotfoundComponent,
     HeaderComponent,
     FooterComponent,
-    PaartersComponent,
-
+    
     SliderComponent,
     GooglemapComponent,
     CompanyhistoryComponent,
@@ -57,9 +56,12 @@ import { ProductdataService } from './services/productdata.service';
     CompanypartnersComponent,
     SignupComponent,
     UsersComponent,
-    ProductsComponent
+    ProductsComponent,
+    DashboardComponent
   ],
   imports: [
+    HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
@@ -104,6 +106,10 @@ import { ProductdataService } from './services/productdata.service';
       {
         path:'signup',
         component:SignupComponent
+      },
+      {
+        path:'dashboard',
+        component:DashboardComponent
       },
       {
         path:'users',

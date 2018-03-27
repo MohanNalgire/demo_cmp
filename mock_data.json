@@ -1,19 +1,144 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+    "users": [
+      {
+        "userid": 1,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      },
+      {
+        "userid": 2,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      },
+      {
+        "userid": 3,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      },
+      {
+        "userid": 4,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      },
+      {
+        "userid":5,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      },
+      {
+        "userid": 6,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      },
+      {
+        "userid": 7,
+        "name":"Mohan",
+        "email":"mnalgire@gmail.com",
+        "mobile":"9405358276",
+        "country":"Inida",
+        "state":"Maharashtra",
+        "city":"Pune",
+        "password":"test@12345",
+        "confirmpassword":"test@12345"
+      }
+    ],
+    "products":[
+      {
+        "id":1,
+        "name":"Monitor-Apple",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":2,
+        "name":"Monitor-Samsung",
+        "company":"Samsung",
+        "quantity":"10"
+      },
+      {
+        "id":3,
+        "name":"Monitor-Lg",
+        "company":"Lg",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      },
+      {
+        "id":1,
+        "name":"Monitor",
+        "company":"apple",
+        "quantity":"10"
+      }
+    ]
   }
-}
+  
