@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductdataService } from '../services/productdata.service';
 import { HttpClient,HttpClientModule  } from '@angular/common/http';
+
+import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -8,9 +10,14 @@ import { HttpClient,HttpClientModule  } from '@angular/common/http';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent implements OnInit {
+
   private products;
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient,
+    private modalService: NgbModal
+  ) { }
 
 
   ngOnInit() {
@@ -19,5 +26,21 @@ export class ProductsComponent implements OnInit {
       this.products=data;
     });
   }
+  
+  productCreate(){
+    alert("Create product");
+  }
 
+  productView(){
+    const modalRef = this.modalService.open(ProductsComponent);
+    modalRef.componentInstance.name = 'World';
+  }
+
+  productEdit(){
+    alert("component");
+  }
+
+  productDelete(){
+    alert("component");
+  }
 }

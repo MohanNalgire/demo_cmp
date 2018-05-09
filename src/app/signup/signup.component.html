@@ -1,5 +1,5 @@
 <div class="user_signup">
-  <form action="" class="form-horizontal" [formGroup]="signupform" novalidate>
+  <form class="form-horizontal" [formGroup]="signupform" (ngSubmit)="addUser(signupform.value)" novalidate>
     <fieldset>
       <legend align="left" align="left">Name details</legend>
       <div class="form-group row">
@@ -162,4 +162,6 @@
   </form>
 </div>
 
-<pre>{{signupform.value|json}}</pre>
+  
+  <h3 *ngIf="isAdded" >{{confirmationStrig}}</h3>
+<!-- <pre>{{signupform.value|json}}</pre> -->

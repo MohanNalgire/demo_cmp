@@ -1,33 +1,60 @@
 <!-- {{users|json}} -->
+
 <div class="container">
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th colspan="5">Fields</th>
-          <th colspan="3">Actions</th>
-        </tr>
-        <tr>
-          <th>Sr No.</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Mobile</th>
-          <th>City</th>
-          <th>View/Explore</th>
-          <th>Edit</th>
-          <th>delete</th>        
+          <th class="col" >Sr No.</th>
+          <th class="col" >Id</th>
+          <th class="col" >Name</th>
+          <th class="col" >Email</th>
+          <th class="col" >Mobile</th>
+          <th class="col" >City</th>
+          <th class="col" ></th>
+          <th class="col" ></th>
+          <th class="col" ></th>
+          <th class="col" >View</th>
+          <th class="col" >Edit</th>
+          <th class="col" >delete</th>        
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users" >
-          <td>{{user.userid}}</td>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.mobile}}</td>
-          <td>{{user.city}}</td>
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr *ngFor="let user of users;let i=index" >
+          <td class="col" >{{i+1}}</td>
+          <td class="col" >{{user.id}}</td>
+          <td class="col" >{{user.name}}</td>
+          <td class="col" >{{user.email}}</td>
+          <td class="col" >{{user.mobile}}</td>
+          <td class="col" >{{user.city}}</td>
+          <td class="col" ></td>
+          <td class="col" ></td>
+          <td class="col" ></td>
+          <td class="col" ><button class="btn btn-outline-info" (click)="open(content,user.id)" >View</button></td>
+          <td class="col" ><button class="btn btn-outline-warning" (click)="usersEdit(content,user.id)" >Edit</button></td>
+          <td class="col" ><button class="btn btn-outline-danger" (click)="usersDelete(content,user.id)" >Delete</button></td>
         </tr>
       </tbody>
     </table>
   </div>
+
+
+
+
+
+
+
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">{{modal_title}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>{{modal_data_user|json}}&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+    </div>
+  </ng-template>

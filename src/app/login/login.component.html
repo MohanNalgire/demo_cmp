@@ -1,4 +1,4 @@
-<form class="form-horizontal" [formGroup]="login" novalidate (ngSubmit)="loginSubmit()" >
+<form class="form-horizontal" [formGroup]="login" novalidate (ngSubmit)="loginSubmit(login.value)" >
   
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -45,3 +45,4 @@
 
 
 <!-- Test {{login.value |json}} -->
+{{login_message}}

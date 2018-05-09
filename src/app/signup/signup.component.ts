@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormGroup, FormArrayName, FormControl, Validators} from '@angular/forms';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  confirmationStrig:string="New user is added successfully.";
+  isAdded:boolean=false;
+
+
   //Form  properties
   signupform:FormGroup;
   userName:FormControl;
@@ -31,7 +37,9 @@ export class SignupComponent implements OnInit {
     'Andhra',
     'telangana'
   ];
-  constructor() { }
+  constructor(
+    private httpClient:HttpClient
+  ) { }
   createFormControls(){
     this.userName =new FormControl(
       '',[
@@ -95,5 +103,43 @@ export class SignupComponent implements OnInit {
     this.createFormControls();
     this.createForm();
   }
+
+
+
+  usersObj : Object={
+    "userid": '',
+    "name": "",
+    "email": "",
+    "mobile": "",
+    "country": "",
+    "state": "",
+    "city": "",
+    "password": "",
+    "confirmpassword": ""
+};
+
+addUser = function (user){
+
+   console.log(user);
+  this.userObj = {
+    "name"            :user.userName,
+    "email"           :user.userEmail,
+    "mobile"          :user.userMobile,
+    "country"         :user.userCountry,
+    "state"           :user.userState,
+    "city"            :user.userCity,
+    "password"        :user.userState,
+
+};
+
+this.httpClient.post("http://localhost:3000/users/",this.userObj).subscribe(
+  (res:Response)=>{
+    this.isAdded =true;
+    console.log(res);
+  }
+);
+}
+
+
 
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -38,6 +39,11 @@ import { ProductdataService } from './services/productdata.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 //Auth gard
 import { AuthGuard } from './auth.guard';
+import { CreateConfirmDialogComponent } from './shared/create-confirm-dialog/create-confirm-dialog.component';
+import { DeleteConfirmDialogComponent } from './shared/delete-confirm-dialog/delete-confirm-dialog.component';
+import { ViewDialogComponent } from './shared/view-dialog/view-dialog.component';
+import { ListViewComponent } from './shared/list-view/list-view.component';
+import { LayoutComponent } from './shared/layout/layout.component';
 
 const appRoutes:Routes=[
   {
@@ -96,7 +102,11 @@ const appRoutes:Routes=[
 ];
 
 @NgModule({
+  entryComponents:[
+    UsersComponent 
+  ],
   declarations: [
+    
     AppComponent,
     HomeComponent,
     CompanyComponent,
@@ -115,7 +125,12 @@ const appRoutes:Routes=[
     SignupComponent,
     UsersComponent,
     ProductsComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateConfirmDialogComponent,
+    DeleteConfirmDialogComponent,
+    ViewDialogComponent,
+    ListViewComponent,
+    LayoutComponent
   ],
   imports: [
     HttpModule,
@@ -124,6 +139,7 @@ const appRoutes:Routes=[
     ReactiveFormsModule,
     NgbModule.forRoot(),
     BrowserModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey:''
     }

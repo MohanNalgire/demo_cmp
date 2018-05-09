@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule, FormGroup, FormArrayName, FormControl, Validators} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private httpClient:HttpClient
   ) { }
   createFormControls(){
 
@@ -51,12 +53,23 @@ export class LoginComponent implements OnInit {
   }
 
   loginSubmit (){
-    if(this.login.value.userEmail=="mnalgire@gmail.com" && this.login.value.userPassword=="test@12345"){
-        this.router.navigateByUrl("/dashboard");
-    }else{
-      this.router.navigateByUrl("/login");
-    }
-    console.log("Login form data",this.login.value.userEmail);
+    let url:string ='http://localhost:3000/users';
+    console.log(url);
+    this.httpClient.get(url,{
+      params:{
+        email:this.login.value.userEmail,
+        password:this.login.value.userPassword
+      }
+      ,observe:'response'
+    }).toPromise().then(response=>{
+        console.log("User is presnet.",response);
+        if(response.ok==true && response.status==200){
+          this.router.navigateByUrl("/dashboard");
+        }else{
+          this.router.navigateByUrl("/login");    
+        }
+      });
+
   }
 
 
