@@ -1,144 +1,86 @@
 {
-    "users": [
-      {
-        "userid": 1,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      },
-      {
-        "userid": 2,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      },
-      {
-        "userid": 3,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      },
-      {
-        "userid": 4,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      },
-      {
-        "userid":5,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      },
-      {
-        "userid": 6,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      },
-      {
-        "userid": 7,
-        "name":"Mohan",
-        "email":"mnalgire@gmail.com",
-        "mobile":"9405358276",
-        "country":"Inida",
-        "state":"Maharashtra",
-        "city":"Pune",
-        "password":"test@12345",
-        "confirmpassword":"test@12345"
-      }
-    ],
-    "products":[
-      {
-        "id":1,
-        "name":"Monitor-Apple",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":2,
-        "name":"Monitor-Samsung",
-        "company":"Samsung",
-        "quantity":"10"
-      },
-      {
-        "id":3,
-        "name":"Monitor-Lg",
-        "company":"Lg",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      },
-      {
-        "id":1,
-        "name":"Monitor",
-        "company":"apple",
-        "quantity":"10"
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "name": "aslam",
+      "email": "aslam@gmail.com",
+      "mobile": "942342342342",
+      "country": null,
+      "state": null,
+      "city": "Pune",
+      "password": null,
+      "id": 1
+    },
+    {
+      "name": "mohan",
+      "email": "mnalgire@gmail.com",
+      "mobile": "9405358276",
+      "country": null,
+      "state": null,
+      "city": "pune",
+      "password": null,
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Monitor-Apple",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 2,
+      "name": "Monitor-Samsung",
+      "company": "Samsung",
+      "quantity": "10"
+    },
+    {
+      "id": 3,
+      "name": "Monitor-Lg",
+      "company": "Lg",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    },
+    {
+      "id": 1,
+      "name": "Monitor",
+      "company": "apple",
+      "quantity": "10"
+    }
+  ]
+}
